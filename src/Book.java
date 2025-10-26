@@ -8,7 +8,7 @@ public class Book extends AbstractLibraryItem {
 
     @Override
     public String borrowItem() {
-        if(isAvailable()!=true){
+        if(!isAvailable()){
             return "Извините, книга не доступна в данный момент";
         } else {
             setAvailable(false);

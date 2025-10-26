@@ -17,7 +17,7 @@ public class Library{
                 return;
             }
         }
-        System.out.println("Такого ресурса нет в наличии");
+        System.out.println("Ресурс '" + title + "' не найден в библиотеке");
     }
 
     public void returnItem(String title){
@@ -28,17 +28,23 @@ public class Library{
                 return;
             }
         }
-        System.out.println("Такой ресурс уже возвращен");
+        System.out.println("Ресурс '" + title + "' не найден в библиотеке");
     }
 
     public void printAvailableItems(){
         System.out.println("Доступные ресурсы");
-        for (int i = 0; i < items.size(); i++){
-            LibraryItem libraryItem = items.get(i);
-            if(libraryItem.isAvailable()){
-                System.out.println(i + 1 + ") " + libraryItem.getTitle());
+        int count = 1;
+        for(LibraryItem item : items){
+            if(item.isAvailable()){
+                System.out.println(count++ + " "+ item.getTitle());
             }
         }
+//        for (int i = 0; i < items.size(); i++){
+//            LibraryItem libraryItem = items.get(i);
+//            if(libraryItem.isAvailable()){
+//                System.out.println(i + 1 + ") " + libraryItem.getTitle());
+//            }
+//        }
     }
 }
 

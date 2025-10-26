@@ -9,7 +9,7 @@ public class Magazine extends AbstractLibraryItem{
 
     @Override
     public String borrowItem() {
-        if(isAvailable()!=true){
+        if(!isAvailable()){
             return "Извините, журнал не доступен в данный момент";
         }else {
             setAvailable(false);
