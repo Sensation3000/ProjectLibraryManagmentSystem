@@ -18,6 +18,9 @@ public class Book extends AbstractLibraryItem {
 
     @Override
     public String returnItem() {
+        if (isAvailable()) {
+            return "Книга уже в библиотеке!";
+        }
         setAvailable(true);
         return  "Книга " + getTitle() + " автора " + author + " возвращена";
     }

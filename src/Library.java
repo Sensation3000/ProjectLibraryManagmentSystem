@@ -3,11 +3,10 @@ import java.util.List;
 
 public class Library{
 
-    private List<LibraryItem> items = new ArrayList<>();;
+    private List<LibraryItem> items = new ArrayList<>();
 
-    public List<LibraryItem> addItem(LibraryItem item) {
+    public void addItem(LibraryItem item) {
         items.add(item);
-        return items;
     }
 
     public void borrowItem(String title){
@@ -15,11 +14,10 @@ public class Library{
         for(LibraryItem libraryItem : items){
             if(title.equals(libraryItem.getTitle())){
                 System.out.println(libraryItem.borrowItem());
-            } else {
-                System.out.println("Такого ресурса нет в наличии");
+                return;
             }
-            return;
         }
+        System.out.println("Такого ресурса нет в наличии");
     }
 
     public void returnItem(String title){
@@ -27,11 +25,10 @@ public class Library{
         for(LibraryItem libraryItem : items){
             if(title.equals(libraryItem.getTitle())){
                 System.out.println(libraryItem.returnItem());
-            } else {
-                System.out.println("Такой ресурс уже возвращен");
+                return;
             }
-            return;
         }
+        System.out.println("Такой ресурс уже возвращен");
     }
 
     public void printAvailableItems(){
@@ -39,7 +36,7 @@ public class Library{
         for (int i = 0; i < items.size(); i++){
             LibraryItem libraryItem = items.get(i);
             if(libraryItem.isAvailable()){
-                System.out.println(i + ") " + libraryItem.getTitle());
+                System.out.println(i + 1 + ") " + libraryItem.getTitle());
             }
         }
     }

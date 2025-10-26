@@ -19,6 +19,9 @@ public class Magazine extends AbstractLibraryItem{
 
     @Override
     public String returnItem() {
+        if (isAvailable()) {
+            return "Журнал уже в библиотеке!";
+        }
         setAvailable(true);
         return "Журнал " + getTitle() + " номер " + issueNumber + " возвращен";
     }
